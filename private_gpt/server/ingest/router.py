@@ -1,16 +1,12 @@
 from fastapi import APIRouter, HTTPException, UploadFile
-from pydantic import BaseModel, Field
 
 from private_gpt.di import root_injector
-from private_gpt.server.ingest.service import IngestedDoc, IngestService
+from private_gpt.server.ingest.schemas import IngestResponse
+from private_gpt.server.ingest.service import IngestService
 
 ingest_router = APIRouter(prefix="/v1")
 
 
-class IngestResponse(BaseModel):
-    object: str = Field(enum=["list"])
-    model: str = Field(enum=["private-gpt"])
-    data: list[IngestedDoc]
 
 
 @ingest_router.post("/ingest", tags=["Ingestion"])

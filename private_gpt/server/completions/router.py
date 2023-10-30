@@ -1,31 +1,11 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
 from starlette.responses import StreamingResponse
 
-from private_gpt.open_ai.context_filter import ContextFilter
 from private_gpt.open_ai.models import OpenAICompletion, OpenAIMessage
 from private_gpt.server.chat.router import ChatBody, chat_completion
+from private_gpt.server.completions.schemas import CompletionsBody
 
 completions_router = APIRouter(prefix="/v1")
-
-
-class CompletionsBody(BaseModel):
-    prompt: str
-    use_context: bool = False
-    context_filter: ContextFilter | None = None
-    stream: bool = False
-
-    model_config = {
-        "json_schema_extra": {
-            "examples": [
-                {
-                    "prompt": "How do you fry an egg?",
-                    "stream": False,
-                    "use_context": False,
-                }
-            ]
-        }
-    }
 
 
 @completions_router.post(

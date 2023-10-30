@@ -1,24 +1,10 @@
 from fastapi import APIRouter
-from pydantic import BaseModel, Field
 
 from private_gpt.di import root_injector
-from private_gpt.open_ai.context_filter import ContextFilter
-from private_gpt.server.chunks.service import Chunk, ChunksService
+from private_gpt.server.chunks.schemas import ChunksBody, ChunksResponse
+from private_gpt.server.chunks.service import ChunksService
 
 chunks_router = APIRouter(prefix="/v1")
-
-
-class ChunksBody(BaseModel):
-    text: str = Field(examples=["Q3 2023 sales"])
-    context_filter: ContextFilter | None = None
-    limit: int = 10
-    prev_next_chunks: int = Field(default=0, examples=[2])
-
-
-class ChunksResponse(BaseModel):
-    object: str = Field(enum=["list"])
-    model: str = Field(enum=["private-gpt"])
-    data: list[Chunk]
 
 
 @chunks_router.post("/chunks", tags=["Context Chunks"])

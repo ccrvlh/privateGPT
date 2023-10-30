@@ -1,48 +1,22 @@
 import tempfile
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, AnyStr
+from typing import TYPE_CHECKING, AnyStr
 
 from injector import inject, singleton
-from llama_index import (
-    Document,
-    ServiceContext,
-    StorageContext,
-    StringIterableReader,
-    VectorStoreIndex,
-)
+from llama_index import (Document, ServiceContext, StorageContext,
+                         StringIterableReader, VectorStoreIndex)
 from llama_index.node_parser import SentenceWindowNodeParser
 from llama_index.readers.file.base import DEFAULT_FILE_READER_CLS
-from pydantic import BaseModel, Field
 
 from private_gpt.components.embedding import EmbeddingComponent
 from private_gpt.components.llm import LLMComponent
 from private_gpt.components.node import NodeStoreComponent
 from private_gpt.components.vector import VectorStoreComponent
 from private_gpt.paths import local_data_path
+from private_gpt.server.ingest.schemas import IngestedDoc
 
 if TYPE_CHECKING:
     from llama_index.readers.base import BaseReader
-
-
-class IngestedDoc(BaseModel):
-    object: str = Field(enum=["ingest.document"])
-    doc_id: str = Field(examples=["c202d5e6-7b69-4869-81cc-dd574ee8ee11"])
-    doc_metadata: dict[str, Any] | None = Field(
-        examples=[
-            {
-                "page_label": "2",
-                "file_name": "Sales Report Q3 2023.pdf",
-            }
-        ]
-    )
-
-    @staticmethod
-    def curate_metadata(metadata: dict[str, Any]) -> dict[str, Any]:
-        """Remove unwanted metadata keys."""
-        metadata.pop("doc_id", None)
-        metadata.pop("window", None)
-        metadata.pop("original_text", None)
-        return metadata
 
 
 @singleton

@@ -3,35 +3,18 @@ from typing import TYPE_CHECKING
 from injector import inject, singleton
 from llama_index import ServiceContext, StorageContext, VectorStoreIndex
 from llama_index.schema import NodeWithScore
-from pydantic import BaseModel, Field
 
 from private_gpt.components.embedding import EmbeddingComponent
 from private_gpt.components.llm import LLMComponent
 from private_gpt.components.node import NodeStoreComponent
 from private_gpt.components.vector import VectorStoreComponent
 from private_gpt.open_ai.context_filter import ContextFilter
-from private_gpt.server.ingest.service import IngestedDoc
+from private_gpt.server.chunks.schemas import Chunk
+from private_gpt.server.ingest.schemas import IngestedDoc
 
 if TYPE_CHECKING:
     from llama_index.schema import RelatedNodeInfo
 
-
-class Chunk(BaseModel):
-    object: str = Field(enum=["context.chunk"])
-    score: float = Field(examples=[0.023])
-    document: IngestedDoc
-    text: str = Field(examples=["Outbound sales increased 20%, driven by new leads."])
-    previous_texts: list[str] | None = Field(
-        examples=[["SALES REPORT 2023", "Inbound didn't show major changes."]]
-    )
-    next_texts: list[str] | None = Field(
-        examples=[
-            [
-                "New leads came from Google Ads campaign.",
-                "The campaign was run by the Marketing Department",
-            ]
-        ]
-    )
 
 
 @singleton

@@ -1,0 +1,5 @@
+llm:
+  mode: openai
+
+openai:
+  api_key: <>

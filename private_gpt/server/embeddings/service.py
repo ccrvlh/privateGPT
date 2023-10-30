@@ -1,13 +1,7 @@
 from injector import inject, singleton
-from pydantic import BaseModel, Field
 
 from private_gpt.components.embedding import EmbeddingComponent
-
-
-class Embedding(BaseModel):
-    index: int
-    object: str = Field(enum=["embedding"])
-    embedding: list[float] = Field(examples=[[0.0023064255, -0.009327292]])
+from private_gpt.server.embeddings.schemas import Embedding
 
 
 @singleton

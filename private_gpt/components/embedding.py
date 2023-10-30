@@ -28,4 +28,5 @@ class EmbeddingComponent:
             case "mock":
                 # Not a random number, is the dimensionality used by
                 # the default embedding model
-                self.embedding_model = MockEmbedding(384)
+                DEFAULT_EMBEDDING_MODEL_DIMENSION = 384
+                self.embedding_model = MockEmbedding(DEFAULT_EMBEDDING_MODEL_DIMENSION)
