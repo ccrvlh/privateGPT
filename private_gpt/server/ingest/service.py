@@ -3,8 +3,13 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any, AnyStr
 
 from injector import inject, singleton
-from llama_index import (Document, ServiceContext, StorageContext,
-                         StringIterableReader, VectorStoreIndex)
+from llama_index import (
+    Document,
+    ServiceContext,
+    StorageContext,
+    StringIterableReader,
+    VectorStoreIndex,
+)
 from llama_index.node_parser import SentenceWindowNodeParser
 from llama_index.readers.file.base import DEFAULT_FILE_READER_CLS
 from pydantic import BaseModel, Field

@@ -1,8 +1,7 @@
 from injector import inject, singleton
 from llama_index.llms import MockLLM
 from llama_index.llms.base import LLM
-from llama_index.llms.llama_utils import (completion_to_prompt,
-                                          messages_to_prompt)
+from llama_index.llms.llama_utils import completion_to_prompt, messages_to_prompt
 
 from private_gpt.paths import models_path
 from private_gpt.settings.settings import settings

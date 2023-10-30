@@ -16,8 +16,10 @@ from private_gpt.components.vector import VectorStoreComponent
 from private_gpt.open_ai.context_filter import ContextFilter
 
 if TYPE_CHECKING:
-    from llama_index.chat_engine.types import (AgentChatResponse,
-                                               StreamingAgentChatResponse)
+    from llama_index.chat_engine.types import (
+        AgentChatResponse,
+        StreamingAgentChatResponse,
+    )
 
 
 @singleton
