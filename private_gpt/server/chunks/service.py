@@ -5,14 +5,12 @@ from llama_index import ServiceContext, StorageContext, VectorStoreIndex
 from llama_index.schema import NodeWithScore
 from pydantic import BaseModel, Field
 
-from private_gpt.components.embedding.embedding_component import EmbeddingComponent
-from private_gpt.components.llm.llm_component import LLMComponent
-from private_gpt.components.node_store.node_store_component import NodeStoreComponent
-from private_gpt.components.vector_store.vector_store_component import (
-    VectorStoreComponent,
-)
-from private_gpt.open_ai.extensions.context_filter import ContextFilter
-from private_gpt.server.ingest.ingest_service import IngestedDoc
+from private_gpt.components.embedding import EmbeddingComponent
+from private_gpt.components.llm import LLMComponent
+from private_gpt.components.node import NodeStoreComponent
+from private_gpt.components.vector import VectorStoreComponent
+from private_gpt.open_ai.context_filter import ContextFilter
+from private_gpt.server.ingest.service import IngestedDoc
 
 if TYPE_CHECKING:
     from llama_index.schema import RelatedNodeInfo

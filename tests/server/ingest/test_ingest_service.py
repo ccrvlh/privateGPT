@@ -2,7 +2,7 @@ from unittest.mock import PropertyMock, patch
 
 from llama_index import Document
 
-from private_gpt.server.ingest.ingest_service import IngestService
+from private_gpt.server.ingest.service import IngestService
 from tests.fixtures.mock_injector import MockInjector
 
 

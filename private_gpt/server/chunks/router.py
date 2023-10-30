@@ -2,8 +2,8 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
 from private_gpt.di import root_injector
-from private_gpt.open_ai.extensions.context_filter import ContextFilter
-from private_gpt.server.chunks.chunks_service import Chunk, ChunksService
+from private_gpt.open_ai.context_filter import ContextFilter
+from private_gpt.server.chunks.service import Chunk, ChunksService
 
 chunks_router = APIRouter(prefix="/v1")
 

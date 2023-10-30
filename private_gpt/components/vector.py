@@ -6,8 +6,8 @@ from llama_index import VectorStoreIndex
 from llama_index.indices.vector_store import VectorIndexRetriever
 from llama_index.vector_stores.types import VectorStore
 
-from private_gpt.components.vector_store.batched_chroma import BatchedChromaVectorStore
-from private_gpt.open_ai.extensions.context_filter import ContextFilter
+from private_gpt.batched_chroma import BatchedChromaVectorStore
+from private_gpt.open_ai.context_filter import ContextFilter
 from private_gpt.paths import local_data_path
 
 

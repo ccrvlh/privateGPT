@@ -1,7 +1,7 @@
 from injector import inject, singleton
 from pydantic import BaseModel, Field
 
-from private_gpt.components.embedding.embedding_component import EmbeddingComponent
+from private_gpt.components.embedding import EmbeddingComponent
 
 
 class Embedding(BaseModel):

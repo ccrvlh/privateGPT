@@ -10,9 +10,9 @@ from gradio.themes.utils.colors import slate  # type: ignore
 from llama_index.llms import ChatMessage, ChatResponse, MessageRole
 
 from private_gpt.di import root_injector
-from private_gpt.server.chat.chat_service import ChatService
-from private_gpt.server.chunks.chunks_service import ChunksService
-from private_gpt.server.ingest.ingest_service import IngestService
+from private_gpt.server.chat.service import ChatService
+from private_gpt.server.chunks.service import ChunksService
+from private_gpt.server.ingest.service import IngestService
 from private_gpt.settings.settings import settings
 from private_gpt.ui.images import logo_svg
 

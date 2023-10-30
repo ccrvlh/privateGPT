@@ -3,23 +3,16 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any, AnyStr
 
 from injector import inject, singleton
-from llama_index import (
-    Document,
-    ServiceContext,
-    StorageContext,
-    StringIterableReader,
-    VectorStoreIndex,
-)
+from llama_index import (Document, ServiceContext, StorageContext,
+                         StringIterableReader, VectorStoreIndex)
 from llama_index.node_parser import SentenceWindowNodeParser
 from llama_index.readers.file.base import DEFAULT_FILE_READER_CLS
 from pydantic import BaseModel, Field
 
-from private_gpt.components.embedding.embedding_component import EmbeddingComponent
-from private_gpt.components.llm.llm_component import LLMComponent
-from private_gpt.components.node_store.node_store_component import NodeStoreComponent
-from private_gpt.components.vector_store.vector_store_component import (
-    VectorStoreComponent,
-)
+from private_gpt.components.embedding import EmbeddingComponent
+from private_gpt.components.llm import LLMComponent
+from private_gpt.components.node import NodeStoreComponent
+from private_gpt.components.vector import VectorStoreComponent
 from private_gpt.paths import local_data_path
 
 if TYPE_CHECKING:

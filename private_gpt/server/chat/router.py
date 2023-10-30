@@ -4,14 +4,11 @@ from pydantic import BaseModel
 from starlette.responses import StreamingResponse
 
 from private_gpt.di import root_injector
-from private_gpt.open_ai.extensions.context_filter import ContextFilter
-from private_gpt.open_ai.openai_models import (
-    OpenAICompletion,
-    OpenAIMessage,
-    to_openai_response,
-    to_openai_sse_stream,
-)
-from private_gpt.server.chat.chat_service import ChatService
+from private_gpt.open_ai.context_filter import ContextFilter
+from private_gpt.open_ai.models import (OpenAICompletion, OpenAIMessage,
+                                        to_openai_response,
+                                        to_openai_sse_stream)
+from private_gpt.server.chat.service import ChatService
 
 chat_router = APIRouter(prefix="/v1")
 

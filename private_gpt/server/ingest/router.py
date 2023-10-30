@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, UploadFile
 from pydantic import BaseModel, Field
 
 from private_gpt.di import root_injector
-from private_gpt.server.ingest.ingest_service import IngestedDoc, IngestService
+from private_gpt.server.ingest.service import IngestedDoc, IngestService
 
 ingest_router = APIRouter(prefix="/v1")
 

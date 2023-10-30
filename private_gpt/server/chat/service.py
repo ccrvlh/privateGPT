@@ -9,19 +9,15 @@ from llama_index.llm_predictor.utils import stream_chat_response_to_tokens
 from llama_index.llms import ChatMessage
 from llama_index.types import TokenGen
 
-from private_gpt.components.embedding.embedding_component import EmbeddingComponent
-from private_gpt.components.llm.llm_component import LLMComponent
-from private_gpt.components.node_store.node_store_component import NodeStoreComponent
-from private_gpt.components.vector_store.vector_store_component import (
-    VectorStoreComponent,
-)
-from private_gpt.open_ai.extensions.context_filter import ContextFilter
+from private_gpt.components.embedding import EmbeddingComponent
+from private_gpt.components.llm import LLMComponent
+from private_gpt.components.node import NodeStoreComponent
+from private_gpt.components.vector import VectorStoreComponent
+from private_gpt.open_ai.context_filter import ContextFilter
 
 if TYPE_CHECKING:
-    from llama_index.chat_engine.types import (
-        AgentChatResponse,
-        StreamingAgentChatResponse,
-    )
+    from llama_index.chat_engine.types import (AgentChatResponse,
+                                               StreamingAgentChatResponse)
 
 
 @singleton

@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-from private_gpt.server.ingest.ingest_router import IngestResponse
+from private_gpt.server.ingest.router import IngestResponse
 
 
 class IngestHelper:

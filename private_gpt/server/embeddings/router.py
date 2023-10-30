@@ -2,10 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
 from private_gpt.di import root_injector
-from private_gpt.server.embeddings.embeddings_service import (
-    Embedding,
-    EmbeddingsService,
-)
+from private_gpt.server.embeddings.service import Embedding, EmbeddingsService
 
 embeddings_router = APIRouter(prefix="/v1")
 

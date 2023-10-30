@@ -1,7 +1,8 @@
 from injector import inject, singleton
 from llama_index.llms import MockLLM
 from llama_index.llms.base import LLM
-from llama_index.llms.llama_utils import completion_to_prompt, messages_to_prompt
+from llama_index.llms.llama_utils import (completion_to_prompt,
+                                          messages_to_prompt)
 
 from private_gpt.paths import models_path
 from private_gpt.settings.settings import settings
@@ -33,7 +34,7 @@ class LLMComponent:
                 )
 
             case "sagemaker":
-                from private_gpt.components.llm.custom.sagemaker import SagemakerLLM
+                from private_gpt.components.sagemaker import SagemakerLLM
 
                 self.llm = SagemakerLLM(
                     endpoint_name=settings.sagemaker.endpoint_name,
